@@ -26,6 +26,7 @@ router.register(r'direction',viewset=DirectionViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('dj_rest_auth.urls')),
     # path('api/', include('gestionnaire.urls')),  # Include the app's URLs
     path('',include(router.urls))
 ]
