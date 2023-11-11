@@ -7,6 +7,7 @@ class UserDetail(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     direction = models.CharField(max_length=50)
     numero = models.CharField(max_length=50)
+    manager = models.CharField(max_length=50)
 
 
 class Stock(models.Model):
@@ -21,6 +22,11 @@ class Stock(models.Model):
     
 class stock_category(models.Model):
     name = models.CharField(max_length=50)
+    details = models.TextField()   
+    
+class status_product(models.Model):
+    name = models.CharField(max_length=50)
+    details = models.TextField()
     
 class direction(models.Model):
     direction =models.CharField(max_length=50)

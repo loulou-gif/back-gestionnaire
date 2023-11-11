@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import Stock, direction, UserDetail, Location
+from .models import Stock, direction, UserDetail, Location, status_product, stock_category
 from django.contrib.auth.models import User
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserDetail
-        fields = ('direction', 'numero')
+        fields = ('direction', 'manager', 'numero')
 
 class UserSerializer(serializers.ModelSerializer):
     userdetail = UserDetailSerializer(required=False)
@@ -35,4 +35,14 @@ class StockSerializer(serializers.ModelSerializer):
 class directionSerializer(serializers.ModelSerializer):
     class Meta:
         model = direction
+        fields= '__all__'
+        
+class status_productSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = status_product
+        fields= '__all__'
+        
+class StockCategorieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = stock_category
         fields= '__all__'

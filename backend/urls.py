@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from gestionnaire.views import StockViewSet, UserDetailViewSet, DirectionViewSet, UserViewSet, LocationViewSet
+from gestionnaire.views import StockViewSet, UserDetailViewSet, DirectionViewSet, UserViewSet, LocationViewSet, statusProductViewSet, categorieStockViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -25,6 +25,8 @@ router.register(r'stock',viewset=StockViewSet)
 router.register(r'direction',viewset=DirectionViewSet)
 router.register(r'create-user',viewset=UserViewSet)
 router.register(r'Emplacement',viewset=LocationViewSet)
+router.register(r'status-produit',viewset=statusProductViewSet)
+router.register(r'categories-produits',viewset=categorieStockViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
