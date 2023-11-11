@@ -16,6 +16,7 @@ class Stock(models.Model):
     location = models.CharField(max_length=50)
     quantity = models.IntegerField()
     status = models.CharField(max_length=20)
+    details = models.TextField()
     
     
 class stock_category(models.Model):
@@ -24,3 +25,7 @@ class stock_category(models.Model):
 class direction(models.Model):
     direction =models.CharField(max_length=50)
     manager=models.CharField(max_length=50)
+    
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+    details = models.TextField()
