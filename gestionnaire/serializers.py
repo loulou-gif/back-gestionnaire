@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Stock, direction, UserDetail
+from .models import Stock, direction, UserDetail, Location
 from django.contrib.auth.models import User
 
 
@@ -21,7 +21,11 @@ class UserSerializer(serializers.ModelSerializer):
         if userdetail_data:
             UserDetail.objects.create(user=user, **userdetail_data)
         return user
-
+    
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Location
+        fields = '__all__'
         
 class StockSerializer(serializers.ModelSerializer):
     class Meta:
