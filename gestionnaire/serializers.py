@@ -45,4 +45,4 @@ class status_productSerializer(serializers.ModelSerializer):
 class StockCategorieSerializer(serializers.ModelSerializer):
     class Meta:
         model = stock_category
-        fields= '__all__'
+        fields= ('name', 'details')
