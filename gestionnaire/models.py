@@ -18,6 +18,7 @@ class Stock(models.Model):
     quantity = models.IntegerField()
     status = models.CharField(max_length=20)
     details = models.TextField()
+    image = models.ImageField(upload_to='stock/', null=True)
     
     
 class stock_category(models.Model):

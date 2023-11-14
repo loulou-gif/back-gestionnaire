@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from gestionnaire.views import StockViewSet, UserDetailViewSet, DirectionViewSet, UserViewSet, LocationViewSet, statusProductViewSet, categorieStockViewSet, UserListViewSet
 from rest_framework import routers
+from . import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'stock',viewset=StockViewSet)
@@ -34,4 +36,4 @@ urlpatterns = [
     path('auth/', include('dj_rest_auth.urls')),
     # path('api/', include('gestionnaire.urls')),  # Include the app's URLs
     path('',include(router.urls))
-]
+]+ static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
