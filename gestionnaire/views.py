@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Stock, direction, UserDetail, Location, status_product, stock_category
 from django.contrib.auth.models import User
-from .serializers import StockSerializer, UserSerializer, directionSerializer, UserDetailSerializer, LocationSerializer, status_productSerializer, StockCategorieSerializer
+from .serializers import StockSerializer, UserSerializer, directionSerializer, UserDetailSerializer, LocationSerializer, status_productSerializer, StockCategorieSerializer, UserListSerializer
 
 # Create your views here.
 class UserViewSet(viewsets.ViewSet):
@@ -51,3 +51,7 @@ class statusProductViewSet(viewsets.ModelViewSet):
 class categorieStockViewSet(viewsets.ModelViewSet):
     queryset = stock_category.objects.all()
     serializer_class = StockCategorieSerializer
+    
+class UserListViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class= UserSerializer

@@ -46,3 +46,8 @@ class StockCategorieSerializer(serializers.ModelSerializer):
     class Meta:
         model = stock_category
         fields= ('name', 'details')
+        
+class UserListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields= ("first_name","username","last_name","email","last_login","userdetails")
