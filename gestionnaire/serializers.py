@@ -9,6 +9,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
         fields = ('direction', 'manager', 'numero')
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True) 
     userdetail = UserDetailSerializer(required=False)
 
     class Meta:
@@ -50,4 +51,4 @@ class StockCategorieSerializer(serializers.ModelSerializer):
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
-        fields= ("first_name","username","last_name","email","last_login","userdetails")
+        fields= ("first_name","username","last_name","email","last_login","userdetail")
