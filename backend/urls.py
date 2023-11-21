@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from gestionnaire.views import StockViewSet, UserDetailViewSet, DirectionViewSet, UserViewSet, LocationViewSet, statusProductViewSet, categorieStockViewSet, UserListViewSet
+from gestionnaire.views import StockViewSet, DirectionViewSet, UserViewSet, LocationViewSet, statusProductViewSet, categorieStockViewSet, UserListViewSet
 from rest_framework import routers
 from . import settings
 from django.conf.urls.static import static

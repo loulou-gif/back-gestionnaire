@@ -1,28 +1,23 @@
 from rest_framework import serializers
-from .models import Stock, direction, UserDetail, Location, status_product, stock_category
+from .models import Stock, direction,  Location, status_product, stock_category
 from django.contrib.auth.models import User
 
 
-class UserDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserDetail
-        fields = ('direction', 'manager', 'numero')
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True) 
-    userdetail = UserDetailSerializer(required=False)
+    # userdetail = UserDetailSerializer(required=False)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name', 'password', 'userdetail')
+        fields = ('id', 'username', 'email', 'first_name', 'last_name','is_staff', 'is_active', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        userdetail_data = validated_data.pop('userdetail', None)
-        user = User.objects.create(**validated_data)
-        if userdetail_data:
-            UserDetail.objects.create(user=user, **userdetail_data)
+        user = User.objects.create_user(**validated_data)
         return user
-    
+
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model= Location
