@@ -27,6 +27,7 @@ class stock_category(models.Model):
     
 class status_product(models.Model):
     name = models.CharField(max_length=50)
+    identifiant = models.IntegerField()
     details = models.TextField()
     
 class direction(models.Model):
