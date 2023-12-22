@@ -16,6 +16,7 @@ class Stock(models.Model):
     serial_number = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
     quantity = models.IntegerField()
+    price = models.IntegerField()
     status = models.CharField(max_length=20)
     details = models.TextField()
     image = models.ImageField(upload_to='stock/', null=True)
