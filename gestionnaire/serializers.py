@@ -41,7 +41,7 @@ class status_productSerializer(serializers.ModelSerializer):
 class StockCategorieSerializer(serializers.ModelSerializer):
     class Meta:
         model = stock_category
-        fields= ('name', 'details')
+        fields= '__all__'
         
 class UserListSerializer(serializers.ModelSerializer):
     class Meta:
