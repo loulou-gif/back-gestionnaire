@@ -2,9 +2,6 @@ from rest_framework import serializers
 from .models import Stock, direction,  Location, status_product, stock_category
 from django.contrib.auth.models import User
 
-
-
-
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True) 
     # userdetail = UserDetailSerializer(required=False)
